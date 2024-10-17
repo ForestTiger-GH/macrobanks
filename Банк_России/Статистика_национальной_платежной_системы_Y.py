@@ -17,13 +17,20 @@ class T1(object):
         names = pd.Series(os.listdir('.'))
         for i in trange(len(names), leave = False):
             a = names[i]
-            date = a[a.find("_")+1:a.find(".")]
-            b = pd.read_excel(a, skiprows=6, skipfooter=1, usecols= lambda x: x not in [1])
-            b['Дата'] = date
-            ### b['Дата'] = pd.to_datetime(b['Дата'])
-            if i == 0: 
-                self.result = b
-            else: 
-                self.result = pd.concat([self.result, b], axis=0)
+            xlsx = pd.ExcelFile(a)
+            data = {}
+            for sheet_name in xlsx.sheet_names:
+                data[sheet_name] = xlsx.parse(sheet_name)
+            for q in range(len(xlsx.sheet_names)):
+                d = data[xlsx.sheet_names[q]]
+                d = d.iloc[6:len(d)-1,1:9].reset_index(drop=True)
+                d.columns = np.arange(1, len(d.columns)+1, 1)
+                d = d.loc[d[1].notna()]
+                date = pd.to_datetime(xlsx.sheet_names[q].replace('_', '.'), dayfirst=True)
+                d['date'] = date
+                if i == 0 and q == 0: 
+                    self.result = d
+                else: 
+                    self.result = pd.concat([self.result, d], axis=0)
     def table(self):
         return self.result
