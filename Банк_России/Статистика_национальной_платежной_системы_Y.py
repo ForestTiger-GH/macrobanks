@@ -29,8 +29,9 @@ class T1(object):
                 date = pd.to_datetime(xlsx.sheet_names[q].replace('_', '.'), dayfirst=True)
                 d['date'] = date
                 if i == 0 and q == 0: 
-                    self.result = d
+                    result = d
                 else: 
-                    self.result = pd.concat([self.result, d], axis=0)
+                    result = pd.concat([result, d], axis=0)
+        self.step1 = result
     def table(self):
-        return self.result
+        return self.step1
