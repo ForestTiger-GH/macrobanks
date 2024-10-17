@@ -5,7 +5,7 @@ from setuptools import setup
 setup(
    name='macrobanks',
    version='0.0.1',
-   description='Module to deconstruct macroeconomic and banking statistic',
+   description='Module to deconstruct macroeconomic and bank statistic',
    author='Forest Tiger',
    packages= ['testing'],
    install_requires=['numpy', 'pandas'], #external packages as dependencies
