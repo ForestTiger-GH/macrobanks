@@ -8,7 +8,7 @@ from datetime import timedelta
 from tqdm import tqdm
 from tqdm.notebook import trange
 
-class Create_Class(object):
+class T1(object):
     def __init__(self, url):
         megasub = '/Макроэкономика и банки/Банк России/Статистика национальной платежной системы (Y)'
         sub = '/1. Институциональная обеспеченность платежными услугами'
@@ -17,8 +17,8 @@ class Create_Class(object):
         names = pd.Series(os.listdir('.'))
         for i in trange(len(names), leave = False):
             a = names[i]
-            date = a.replace('.xls', '')
-            b = pd.read_excel(a)
+            date = a[a.find("_")+1:a.find(".")]
+            b = pd.read_excel(a, skiprows=6, skipfooter=1, usecols= lambda x: x not in [1])
             b['Дата'] = date
             ### b['Дата'] = pd.to_datetime(b['Дата'])
             if i == 0: 
