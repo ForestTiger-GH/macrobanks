@@ -13,6 +13,7 @@ class Create_Class(object):
         megasub = '/Макроэкономика и банки/Банк России/Статистика национальной платежной системы (Y)'
         sub = '/1. Институциональная обеспеченность платежными услугами'
         link = url+megasub+sub
+        os.chdir(link)
         names = pd.Series(os.listdir('.'))
         for i in trange(len(names), leave = False):
             a = names[i]
