@@ -11,7 +11,7 @@ from tqdm.notebook import trange
 class Create_Class(object):
     def __init__(self, url):
         megasub = '/Макроэкономика и банки/Банк России/Статистика национальной платежной системы (Y)'
-        sub = '/1. Институциональная обеспеченность платежными услугами
+        sub = '/1. Институциональная обеспеченность платежными услугами'
         link = url+megasub+sub
         names = pd.Series(os.listdir('.'))
         for i in trange(len(names), leave = False):
