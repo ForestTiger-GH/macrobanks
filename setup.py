@@ -1,0 +1,12 @@
+# -*- coding: utf-8 -*-
+
+from setuptools import setup
+
+setup(
+   name='macrobanks',
+   version='0.0.1',
+   description='Module to deconstruct macroeconomic and banking statistic',
+   author='Forest Tiger',
+   packages= ['testing'],
+   install_requires=['numpy', 'pandas'], #external packages as dependencies
+)
