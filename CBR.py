@@ -20,6 +20,9 @@ from urllib3.util.retry import Retry
 
 # --- Ссылки по умолчанию: таймсерии ЦБ (ипотека + кредиты корпорациям) ---
 DEFAULT_URLS = [
+    # Кредиты физлиц
+    "https://www.cbr.ru/vfs/statistics/BankSector/Mortgage/02_05_Debt_ind.xlsx",
+    "https://www.cbr.ru/vfs/statistics/BankSector/Mortgage/02_05_Debt_ind.xlsx", 
     # Ипотека (полные ряды)
     "https://www.cbr.ru/vfs/statistics/banksector/mortgage/02_41_Mortgage_ihc.xlsx",
     "https://www.cbr.ru/vfs/statistics/BankSector/Mortgage/02_02_Mortgage.xlsx",
@@ -29,6 +32,16 @@ DEFAULT_URLS = [
     "https://www.cbr.ru/vfs/statistics/BankSector/Loans_to_corporations/01_01_C_New_loans_corp_by_activity.xlsx",
     "https://www.cbr.ru/vfs/statistics/BankSector/Loans_to_corporations/01_02_A_Debt_corp_by_activity.xlsx",
     "https://www.cbr.ru/vfs/statistics/BankSector/Loans_to_corporations/01_02_C_Debt_corp_by_activity.xlsx",
+    "https://www.cbr.ru/vfs/statistics/BankSector/Loans_to_corporations/01_11_Debt_sme.xlsx",
+    "https://www.cbr.ru/vfs/statistics/BankSector/Loans_to_corporations/01_11_I_Debt_ie_by_activity.xlsx",
+    # Долговые бумаги
+    "https://www.cbr.ru/vfs/statistics/debt_securities/66-debt_securities.xlsx", 
+    # Средства совокупные
+    "https://www.cbr.ru/vfs/statistics/BankSector/Borrowings/02_01_Funds_all.xlsx", 
+    "https://www.cbr.ru/vfs/statistics/banksector/borrowings/02_29_Budget_all.xlsx", 
+    # Домашние хозяйства
+    "https://cbr.ru/vfs/statistics/households/households_bm.xlsx",
+    "https://cbr.ru/vfs/statistics/households/households_om.xlsx",
     # Уникальный файл с добавлением "_new"
     "https://www.cbr.ru/Content/Document/File/115862/obs_tabl20%D1%81.xlsx",
 ]
