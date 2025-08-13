@@ -107,7 +107,7 @@ def _download_one(session: requests.Session, url: str, dest_dir: str) -> Optiona
                 # Уникальное правило для obs_tabl20с.xlsx
                 if "obs_tabl20" in fname.lower():
                     base, ext = os.path.splitext(fname)
-                    fname = f"{base}_new{ext}"
+                    fname = f"{base}new{ext}"
 
                 out_path = os.path.join(dest_dir, fname)
                 with open(out_path, "wb") as f:
