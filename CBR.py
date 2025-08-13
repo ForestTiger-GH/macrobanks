@@ -29,6 +29,8 @@ DEFAULT_URLS = [
     "https://www.cbr.ru/vfs/statistics/BankSector/Loans_to_corporations/01_01_C_New_loans_corp_by_activity.xlsx",
     "https://www.cbr.ru/vfs/statistics/BankSector/Loans_to_corporations/01_02_A_Debt_corp_by_activity.xlsx",
     "https://www.cbr.ru/vfs/statistics/BankSector/Loans_to_corporations/01_02_C_Debt_corp_by_activity.xlsx",
+    # Уникальный файл с добавлением "_new"
+    "https://www.cbr.ru/Content/Document/File/115862/obs_tabl20%D1%81.xlsx",
 ]
 
 USER_AGENT = (
@@ -101,6 +103,12 @@ def _download_one(session: requests.Session, url: str, dest_dir: str) -> Optiona
             ctype = (r.headers.get("Content-Type") or "").lower()
             if r.status_code == 200 and "text/html" not in ctype:
                 fname = _filename_from_response(r) or _basename_from_url(u) or "downloaded_file"
+
+                # Уникальное правило для obs_tabl20с.xlsx
+                if "obs_tabl20" in fname.lower():
+                    base, ext = os.path.splitext(fname)
+                    fname = f"{base}_new{ext}"
+
                 out_path = os.path.join(dest_dir, fname)
                 with open(out_path, "wb") as f:
                     for chunk in r.iter_content(chunk_size=8192):
@@ -115,6 +123,7 @@ def _download_one(session: requests.Session, url: str, dest_dir: str) -> Optiona
 
     print(f"❌ Не удалось скачать: {url} (последняя ошибка: {last_error})")
     return None
+
 
 def cbr_timeseries_archiver(
     urls: Optional[Iterable[str]] = None,
