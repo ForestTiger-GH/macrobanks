@@ -157,7 +157,7 @@ def cbr_timeseries_archiver(
     # Имя архива строго по текущей дате
     if archive_name is None:
         archive_name = f"{dt.date.today():%Y-%m-%d}.zip"
-        archive_name = "CBR_United Series.zip"
+        archive_name = "CBR Collected Series Files.zip"
 
     # Рабочая директория
     if work_dir is None:
