@@ -57,9 +57,9 @@ def apply_inbank_prefix(INBANK_API_PREFIX: str, original_url: str) -> str:
 
 
 def normalize_bank_name(name,
-                        placement: str = 'left',     # 'left' | 'right' | 'omit'
+                        placement: str = 'omit',     # 'left' | 'right' | 'omit'
                         case_mode: str = 'upper',    # 'upper' | 'preserve'
-                        drop_bank: str = 'keep'      # 'keep' | 'left' | 'right' | 'both'
+                        drop_bank: str = 'left'      # 'keep' | 'left' | 'right' | 'both'
                         ):
     import re
     try:
