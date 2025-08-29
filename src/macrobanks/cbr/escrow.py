@@ -39,7 +39,7 @@ from openpyxl.utils import get_column_letter
 
 # Импорт универсального префикса для внутренних шлюзов
 # (Этот модуль должен быть в твоём репозитории: macrobanks/codes.py)
-from macrobanks.codes import apply_inbank_prefix
+from macrobanks.routines import apply_inbank_prefix
 
 
 # ---------------------------
