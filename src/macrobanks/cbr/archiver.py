@@ -117,7 +117,7 @@ def _download_one(session: requests.Session, url: str, dest_dir: str) -> Optiona
                 fname = _filename_from_response(r) or _basename_from_url(u) or "downloaded_file"
 
                 # Уникальное правило для obs_tabl20с.xlsx
-                if "obs_tabl20" in fname.lower():
+                if "obs_tabl20c" in fname.lower():
                     base, ext = os.path.splitext(fname)
                     fname = f"{base}new{ext}"
 
