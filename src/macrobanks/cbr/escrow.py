@@ -153,6 +153,7 @@ def parse_cbr_equity_file(file_path: str) -> pd.DataFrame:
     long_df = df.melt(id_vars=[region_col], var_name="Показатель", value_name="Значение")
     long_df = long_df.rename(columns={region_col: "Регион"})
     long_df["Дата"] = date_str
+    long_df["Значение"] = long_df["Значение"].replace(' ', '')
     long_df = long_df.dropna(subset=["Значение"])
 
     # Очистки как в исходном коде
