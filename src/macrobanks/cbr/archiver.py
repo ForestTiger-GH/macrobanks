@@ -38,6 +38,7 @@ DEFAULT_URLS = [
     "https://www.cbr.ru/vfs/statistics/BankSector/Loans_to_corporations/01_05_D_Debt_subj.xlsx",
 
     "https://cbr.ru/vfs/statistics/BankSector/Loans_to_corporations/02_03_Debt_structure_by_benchmark_interest_rate_type.xlsx",
+    "https://www.cbr.ru/vfs/statistics/banksector/loans_to_corporations/02_02_SME_Borrowers_info.xlsx",
     # Долговые бумаги
     "https://www.cbr.ru/vfs/statistics/debt_securities/66-debt_securities.xlsx", 
     # Средства совокупные
